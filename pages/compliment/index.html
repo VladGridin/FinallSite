@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компліменти</title>
+    <link rel="stylesheet" href="../../css/pages.css">
+</head>
+<body>
+    <a href="/"class="home">Головна</a>
+    <div class="main">
+        <h1>Компліменти</h1>
+        <h2>Ви можете отримати компліменти, але спочатку введіть кількість компліментів.</h2>
+        <div class="field">
+            <label for="">Кількість компліментів</label>
+            <input class="field__input" id="input" type="number">
+            <button class="field__btn" onclick=calculateSum()>Отримати</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function calculateSum () {
+            
+            const input = parseInt(document.getElementById("input").value);
+            const compliments = ["funny","good person","smart","genius","cleaver","generous","pretty","kind"];
+            const animals = ["ladybag","butterfly","cat","dog","duck","chicken","bear"];
+            const smileyCodes = ["&#9786;", "&#10084;", "&#128521;", "&#128539;", "&#128540;", "&#128526;", "&#128570;", "&#128540;", "&#128558;", "&#128546;", "&#128525;", "&#128079;", "&#128077;", "&#129419;", "&#128513;" ];
+            let resultText=""
+            for(let i=1; i<= input; i++) {
+                const complimentResult = Math.floor(Math.random() * compliments.length);
+                const animalResult = Math.floor(Math.random()* animals.length);
+                const smileResult = Math.floor(Math.random()*smileyCodes.length);
+                resultText += (`<br> <p>${i} you are so ${compliments[complimentResult]} as a ${animals[animalResult]}. ${smileyCodes[smileResult]}`)
+            }
+            document.getElementById("result").innerHTML = resultText
+        }
+    </script>
+</body>
+</html>

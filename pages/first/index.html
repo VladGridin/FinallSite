@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Банкомат</title>
+    <link rel="stylesheet" href="../../css/pages.css">
+</head>
+<script>
+    const calculateSum = () => {
+       
+        let input = parseInt(document.getElementById("input").value);
+        let result  = document.getElementById("result")
+        let comision = input%50
+        input = input-comision
+        if (input < 50 || input > 3000) {
+            document.getElementById("result").textContent = 'На жаль, Ви  можете зняти гроші на суму від 50 грн. до 3000 грн.';
+        }  else {
+            document.getElementById("result").textContent ="Ви можете забрати кошти у розмірі: " + input + " грн\nКомісія: " + comision + " Грн"
+        }
+    }
+
+</script>
+<body>
+    <a href="/"class="home">Головна</a>
+    <div class="main">
+        <h1>банкомат</h1>
+        <h2>Ви можете зняти гроші кратні 50</h2>
+        <div class="field">
+            <label for="">Ваша сумма</label>
+            <input class="field__input" id="input" type="number">
+            <button class="field__btn" onclick=calculateSum()>Зняти</button>
+        </div>
+        <div class="result" id="result">
+            
+        </div>
+    </div>
+</body>
+</html>

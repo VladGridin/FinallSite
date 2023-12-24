@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квадратне рівняння</title>
+    <link rel="stylesheet" href="../../css/pages.css">
+</head>
+<body>
+    <a href="/"class="home">Головна</a>
+    <div class="main">
+        <h1>Квадратне рівняння</h1>
+        <h2>Для розрахункыв потрібно вписати значення </h2>
+        <div class="field">
+            <!-- <label for="">a</label> -->
+            <input  class="field__input" style="width: 30px; height: 30px; margin: 0;" size="4" id="a" type="number">
+            <label for="">x&sup2; + </label>
+            <input  class="field__input" style="width: 30px; height: 30px; margin: 0;" size="4" id="b" type="number">
+            <label for="">x+</label>
+            <input  class="field__input" style="width: 30px; height: 30px; margin: 0;" size="4" id="c" type="number">
+            <button class="field__btn" onclick=math()>Розрахувати</button>
+        </div>
+        
+        <div class="result" id="result">
+            
+        </div>
+    </div>
+    <script>
+        const math = () => {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value);
+            let result = document.getElementById("result");
+            
+            // checking value
+            if(a && b && c) {
+                let D = b**2-4*a*c
+                let x = -b/2*a
+                let x1 = (-b+Math.sqrt(D))/2*a
+                let x2 = (-b-Math.sqrt(D))/2*a
+                if(D>0){
+                    res = `Рівняння має два корені \n Корінь: ${x1} \nКорінь: ${x2}`
+                } else if(D==0) {
+                    res = `Рівняння соє один корінь ${x1}`
+
+                } else {
+                    res = `рівняння не має корення`
+                }
+            } 
+            else  res = "Не вірні значення"
+            result.textContent = res;
+        }
+
+    </script>
+</body>
+</html>

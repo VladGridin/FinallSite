@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прямокутник</title>
+    <link rel="stylesheet" href="../../css/pages.css">
+</head>
+<body>
+    <a href="/"class="home">Головна</a>
+    <div class="main">
+        <h1>Прямокутник</h1>
+        <h2>Ви может разрахувати площу, та периметр прямокутнику</h2>
+        <div class="field">
+            <label for="">a</label>
+            <input  class="field__input" style="width: 50px; height: 50px;" size="4" id="a" type="number">
+            <label for="">b</label>
+            <input  class="field__input" style="width: 50px; height: 50px;" size="4" id="b" type="number">
+            
+            <button class="field__btn" onclick=math()>Розрахувати</button>
+        </div>
+        
+        <div class="result" id="result">
+            
+        </div>
+    </div>
+    <script>
+        const math = () => {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            
+            let result = document.getElementById("result");
+            
+            // checking value
+            if(a && b) {
+                const perimetr = 2*(a+b);
+                const s  = a*b
+                res = `Периметр: ${perimetr} <br> Площа: ${s}`
+            } 
+            else  res = "Сторони не вірні"
+            result.textContent = res;
+        }
+
+    </script>
+</body>
+</html>

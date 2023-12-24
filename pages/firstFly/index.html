@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/pages.css">
+</head>
+<body>
+    <script>
+        
+        let spaceYear = +prompt('В якому році був перший політ у космос', '')
+        
+
+            if(spaceYear != null) {
+                if (spaceYear == 1961) {
+                alert("Ви праві")
+                
+                }
+                if(spaceYear >= 0) {
+                    alert(`Нажаль політ було здійснено ${spaceYear > 1961  ? "раніше" : "пізніше"}`)
+                }
+                else alert("Не вірне значення")
+                
+            }
+            
+            else {
+                alert("Ви вийшли")
+                
+            }
+    </script>
+    <a href="/"class="home">Головна</a>
+</body>
+</html>

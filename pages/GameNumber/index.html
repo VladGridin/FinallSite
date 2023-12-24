@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра Вгадай число</title>
+    <link rel="stylesheet" href="../../css/pages.css">
+    
+</head>
+<body>
+    <a href="/"class="home">Головна</a>
+    <div class="main">
+        <h1>Гра вгадай число</h1>
+        <h2>Програма загадала число від 0 до 100. Ваша задача вгадати.</h2>
+        <div class="field">
+            <label for="">Ваше число </label>
+            <input class="field__input" style="width: 100px;" id="input" type="number">
+            <button class="field__btn" onclick=calculateSum()>Перевірити</button>
+        </div>
+        <div class="result" id="result">
+            <div class="clue"></div>
+            <div class="attempt">
+                <p> Кількість спроб: </p>
+                <span class="attempt__value"></span> 
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        let rand = 1 + Math.floor(Math.random() * 100);
+        let item = 0;
+        
+        const calculateSum = () => {
+            let input = parseInt(document.getElementById("input").value);
+            let clue = document.querySelector(".clue");
+            let attempt = document.querySelector(".attempt__value")
+            console.log(rand, input)
+            if(input < rand){ 
+                item++
+                console.log(item)
+                clue.textContent = "Замало";
+                attempt.textContent = item
+            } else if(input>rand) {
+                clue.textContent = "Забагато";
+                item++
+                attempt.textContent = item
+            } else  {
+                clue.textContent = "Ви вгдали!";
+                item++
+                attempt.textContent = item
+            }
+        }
+    </script>
+</body>
+</html>

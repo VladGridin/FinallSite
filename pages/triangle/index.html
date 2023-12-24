@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трикутник</title>
+    <link rel="stylesheet" href="../../css/pages.css">
+</head>
+<body>
+    <a href="/"class="home">Головна</a>
+    <div class="main">
+        <h1>Трикутник</h1>
+        <h2>Ви может разрахувати площу, та периметр трикутника</h2>
+        <div class="field">
+            <label for="">a</label>
+            <input  class="field__input" style="width: 50px; height: 50px;" size="4" id="a" type="number">
+            <label for="">b</label>
+            <input  class="field__input" style="width: 50px; height: 50px;" size="4" id="b" type="number">
+            <label for="">c</label>
+            <input  class="field__input" style="width: 50px; height: 50px;" size="4" id="c" type="number">
+            <button class="field__btn" onclick=math()>Розрахувати</button>
+        </div>
+        
+        <div class="result" id="result">
+            
+        </div>
+    </div>
+    <script>
+        const math = () => {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value);
+            let result = document.getElementById("result");
+            
+            // checking value
+            if(a && b && c) {
+                const perimetr = a+b+c;
+                if((a+b>c) && (c+b >a) && (b+a>c)&& a > 0 && b > 0 && c > 0) {
+                    const SemiPerimetr = perimetr/2
+                    const sqare = Math.sqrt(SemiPerimetr*(SemiPerimetr-a)*(SemiPerimetr-b)*(SemiPerimetr-c))
+                     res = `Периметр: ${perimetr} \n Площа: ${sqare}`
+                }
+                else res = "Нажаль такого трикутника не існує :("
+            } 
+            else  res = "Сторони не вірні"
+            result.textContent = res;
+        }
+
+    </script>
+</body>
+</html>
